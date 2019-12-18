@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moshi_live/apis/LoginApiProvider.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,10 +46,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   TextStyle style = TextStyle( fontSize: 20.0);
-
+  var api = LoginApiProvider();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  void startLogin(email, password) {
+    api.login(email, password).then((response) {
+      print(response);
+    }, onError: (error){
+      print(error);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     final emailField = TextField(
+      controller: emailController,
       obscureText: false,
       style: style,
       decoration: InputDecoration(
@@ -59,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
     final passwordField = TextField(
+      controller: passwordController,
       obscureText: true,
       style: style,
       decoration: InputDecoration(
@@ -75,7 +87,13 @@ class _MyHomePageState extends State<MyHomePage> {
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {},
+        onPressed: () {
+          if(true == emailController.text?.isNotEmpty && true == passwordController.text?.isEmpty) {
+            startLogin(emailController.text, passwordController.text);
+          } else {
+            print("Not input");
+          }
+        },
         child: Text(
           "Login",
           textAlign: TextAlign.center,

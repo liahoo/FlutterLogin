@@ -1,13 +1,20 @@
 class User {
-  final String name;
+  final int uid;
   final String email;
+  final String lastName;
+  final String firstName;
+  final String city;
   final String gender;
-  final String avatar;
-  User(this.name, this.gender, this.email, this.avatar);
+  final String imagePath;
+  final String bio;
 
-  User.fromJson(Map<String, dynamic> json) :
-    gender = json["gender"],
-    email=json["email"],
-    avatar=json["avatar"],
-    name=json["name"];
+  User.fromJson(Map<String, dynamic> json)
+      : uid = json["uid"],
+        email=json["email"],
+        lastName = json["lastName"],
+        firstName = json["firstName"],
+        city = json["city"],
+        gender = json["gender"],
+        imagePath=json["imagePath"],
+        bio=json["bio"];
 }

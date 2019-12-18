@@ -5,13 +5,16 @@ class LoginApiProvider{
   final String _endpoint = "http://localhost:8080/API/v1";
   final Dio _dio = Dio();
 
-  Future<LoginResponse> getUser() async {
+  Future<LoginResponse> login(String email, String password) async {
     try {
-      Response response = await _dio.get(_endpoint);
-      return LoginResponse.fromJson(response.data);
+      Response response = await _dio.post(_endpoint, data: {
+        "email": email,
+        "password": password
+      });
+      return LoginResponse.fromJson(response.statusCode, response.data);
     } catch (error, stacktrace) {
       print("Exception occured: $error stackTrace: $stacktrace");
-      return LoginResponse(error, null, null);
+      return LoginResponse.withError(500, error);
     }
   }
 }
