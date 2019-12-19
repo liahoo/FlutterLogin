@@ -4,7 +4,7 @@ class User {
   final String lastName;
   final String firstName;
   final String city;
-  final String gender;
+  final int gender;
   final String imagePath;
   final String bio;
 

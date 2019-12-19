@@ -51,7 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
   var passwordController = TextEditingController();
   void startLogin(email, password) {
     api.login(email, password).then((response) {
-      print(response);
+      print("resultCode: ${response.resultCode}");
+      print("token: ${response.token}");
+      print("user: ${response.user.toString()}");
     }, onError: (error){
       print(error);
     });
@@ -88,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
-          if(true == emailController.text?.isNotEmpty && true == passwordController.text?.isEmpty) {
+          if(true == emailController.text?.isNotEmpty && true == passwordController.text?.isNotEmpty) {
             startLogin(emailController.text, passwordController.text);
           } else {
             print("Not input");
