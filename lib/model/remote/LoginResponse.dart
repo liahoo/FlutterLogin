@@ -1,18 +1,19 @@
+import 'package:moshi_live/apis/UserApiProvider.dart';
 import 'package:moshi_live/model/User.dart';
 
-class LoginResponse {
+class LoginResponse extends ApiResponse {
   final int resultCode;
-  final String error;
   final String token;
-  final User user;
-  LoginResponse(this.resultCode, this.error, this.token, this.user);
+  final UserProfile user;
+  LoginResponse(this.resultCode, error, this.token, this.user) : super(error);
 
   LoginResponse.fromJson(this.resultCode, Map<String, dynamic> json) :
-        error = json["error"],
         token = json["token"],
-        user = User.fromJson(json["user"]);
+        user = UserProfile.fromJson(json["user"]),
+        super(json["error"]);
 
-  LoginResponse.withError(this.resultCode, this.error) :
+  LoginResponse.withError(this.resultCode, error) :
         token = null,
-        user = null;
+        user = null,
+        super(error);
 }

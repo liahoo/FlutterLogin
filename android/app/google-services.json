@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "740690806774",
+    "firebase_url": "https://moshimoshi-live.firebaseio.com",
+    "project_id": "moshimoshi-live",
+    "storage_bucket": "moshimoshi-live.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740690806774:android:76e1091ffb12eac185e9d7",
+        "android_client_info": {
+          "package_name": "live.moshimoshi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740690806774-ucn5bppa0e2qh7ekbmrhr80tl8jm9i4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7XQMUjGSffrLGkM-cFkFE1pTntnTsP58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740690806774-ucn5bppa0e2qh7ekbmrhr80tl8jm9i4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

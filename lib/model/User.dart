@@ -1,4 +1,4 @@
-class User {
+class UserProfile {
   final int uid;
   final String email;
   final String lastName;
@@ -8,7 +8,7 @@ class User {
   final String imagePath;
   final String bio;
 
-  User.fromJson(Map<String, dynamic> json)
+  UserProfile.fromJson(Map<String, dynamic> json)
       : uid = json["uid"],
         email=json["email"],
         lastName = json["lastName"],

@@ -1,4 +1,4 @@
-package live.moshimoshi.moshi_live
+package live.moshimoshi
 
 import android.os.Bundle
 
